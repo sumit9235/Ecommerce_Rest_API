@@ -1,65 +1,130 @@
-# Ecommerce_Rest_API
+# E-commerce Backend Documentation
 
-    <h1>E-commerce Backend Documentation</h1>
+This documentation provides an overview of the key routes and functionality of an e-commerce backend built using Node.js, Express.js, and MongoDB. It includes user management, cart operations, order processing, and product management.
 
-    <h1>E-commerce Backend Documentation</h1>
-    <p>This documentation provides an overview of the key routes and functionality of an e-commerce backend built using Node.js, Express.js, and MongoDB. It includes user management, cart operations, order processing, and product management.</p>
+# User Management
 
-    <h2>User Management</h2>
+## User Registration
 
-    <h3>User Registration</h3>
-    <p><strong>Route:</strong> POST /register</p>
-    <p><strong>Description:</strong> Registers a new user.</p>
-    <p><strong>Responses:</strong></p>
-    <ul>
-        <li>201 Created: New user registered successfully.</li>
-        <li>409 Conflict: User already exists.</li>
-        <li>500 Internal Server Error: Registration error.</li>
-    </ul>
+- **Route:** POST /register
+- **Description:** Registers a new user.
+- **Responses:**
+  - 201 Created: New user registered successfully.
+  - 409 Conflict: User already exists.
+  - 500 Internal Server Error: Registration error.
 
-    <h3>User Login</h3>
-    <p><strong>Route:</strong> POST /login</p>
-    <p><strong>Description:</strong> Logs in a user.</p>
-    <p><strong>Responses:</strong></p>
-    <ul>
-        <li>200 OK: Login successful.</li>
-        <li>400 Bad Request: Incorrect password.</li>
-        <li>404 Not Found: Email does not exist.</li>
-        <li>500 Internal Server Error: Login error.</li>
-    </ul>
+## User Login
 
-    <h2>Cart Operations</h2>
+- **Route:** POST /login
+- **Description:** Logs in a user.
+- **Responses:**
+  - 200 OK: Login successful.
+  - 400 Bad Request: Incorrect password.
+  - 404 Not Found: Email does not exist.
+  - 500 Internal Server Error: Login error.
 
-    <p><strong>Add Product to Cart:</strong> POST /addtocart</p>
-    <p><strong>View Cart Products:</strong> GET /cart</p>
-    <p><strong>Update Cart Item Quantity:</strong> PATCH /update</p>
-    <p><strong>Remove Product from Cart:</strong> DELETE /removefromcart/:product_id</p>
+## Add Product to Cart
 
-    <h2>Order Processing</h2>
+- **Route:** POST /addtocart
+- **Description:** Adds a product to the user's cart.
+- **Responses:**
+  - 200 OK: Product added to cart.
+  - 400 Bad Request: Product is unavailable.
+  - 500 Internal Server Error: Cart update error.
 
-    <p><strong>Place Order:</strong> POST /placeorder</p>
-    <p><strong>Fetch User's Order History:</strong> GET /user-orders</p>
-    <p><strong>Fetch Order Details by Order ID:</strong> GET /order/:order_id</p>
+## View Cart Products
 
-    <h2>Product Management</h2>
+- **Route:** GET /cart
+- **Description:** Retrieves products from the user's cart.
+- **Responses:**
+  - 200 OK: Cart products retrieved successfully.
+  - 404 Not Found: User not found.
+  - 500 Internal Server Error: Cart retrieval error.
 
-    <h3>Product Operations</h3>
-    <p><strong>Add Product:</strong> POST /addproduct</p>
-    <p><strong>Change Product Availability:</strong> PUT /availability/:productId</p>
-    <p><strong>Get Product Categories:</strong> GET /categories</p>
-    <p><strong>Get Products by Category:</strong> GET /getcategories/:id</p>
-    <p><strong>Get Product by Product ID:</strong> GET /getproduct/:id</p>
+## Update Cart Item Quantity
 
-    <h2>Authentication</h2>
-    <p>Authentication is implemented using JSON Web Tokens (JWT) for secure user access.</p>
-    <p>Bcrypt is used for password hashing.</p>
+- **Route:** PATCH /update
+- **Description:** Updates the quantity of a product in the user's cart.
+- **Responses:**
+  - 200 OK: Quantity updated in cart.
+  - 400 Bad Request: Product is unavailable or not found in cart.
+  - 500 Internal Server Error: Cart update error.
 
-    <h2>Notes</h2>
-    <ul>
-        <li>Ensure proper input validation and error handling.</li>
-        <li>Set up environmental variables for sensitive information.</li>
-        <li>Test API endpoints thoroughly.</li>
-        <li>Consider using API documentation tools like Swagger for better visualization.</li>
-    </ul>
+## Remove Product from Cart
 
-    <p>This documentation provides a concise overview of the e-commerce backend's functionality and routes for developers and stakeholders. For a more interactive documentation experience, consider using API documentation tools.</p>
+- **Route:** DELETE /removefromcart/:product_id
+- **Description:** Removes a product from the user's cart.
+- **Responses:**
+  - 200 OK: Product removed from cart.
+  - 400 Bad Request: Product not found in cart.
+  - 500 Internal Server Error: Cart update error.
+
+## Place Order
+
+- **Route:** POST /placeorder
+- **Description:** Places an order for cart products.
+- **Responses:**
+  - 200 OK: Order placed successfully.
+  - 404 Not Found: User not found.
+  - 500 Internal Server Error: Order placement error.
+
+## Fetch User's Order History
+
+- **Route:** GET /user-orders
+- **Description:** Retrieves the order history of a user.
+- **Responses:**
+  - 200 OK: User's order history retrieved successfully.
+  - 404 Not Found: User not found.
+  - 500 Internal Server Error: Order history retrieval error.
+
+## Fetch Order Details by Order ID
+
+- **Route:** GET /order/:order_id
+- **Description:** Retrieves order details by order ID.
+- **Responses:**
+  - 200 OK: Order details retrieved successfully.
+  - 404 Not Found: Order not found.
+  - 500 Internal Server Error: Order retrieval error.
+
+# Product Management
+
+## Add Product
+
+- **Route:** POST /addproduct
+- **Description:** Adds a new product to the database.
+- **Responses:**
+  - 200 OK: Product added successfully.
+  - 400 Bad Request: Product addition error.
+
+## Change Product Availability
+
+- **Route:** PUT /availability/:productId
+- **Description:** Changes the availability status of a product.
+- **Responses:**
+  - 200 OK: Product availability updated successfully.
+  - 404 Not Found: Product not found.
+  - 500 Internal Server Error: Product availability update error.
+
+## Get All Product Categories
+
+- **Route:** GET /categories
+- **Description:** Retrieves a list of product categories.
+- **Responses:**
+  - 200 OK: Categories retrieved successfully.
+  - 500 Internal Server Error: Categories retrieval error.
+
+## Get Products by Category
+
+- **Route:** GET /getcategories/:id
+- **Description:** Retrieves products of a particular category. Products have been divided into 4 major categories. "Cat-I":- Edibles related product, "Cat-II":- Electronic releated products, "Cat-III":- Clothing/Wearables products, "Cat-IV":- Daily need products.
+- **Responses:**
+  - 200 OK: Products retrieved successfully.
+  - 500 Internal Server Error: Product retrieval error.
+
+## Get Product by Product ID
+
+- **Route:** GET /getproduct/:id
+- **Description:** Retrieves a product by its unique ID.
+- **Responses:**
+  - 200 OK: Product retrieved successfully.
+  - 500 Internal Server Error: Product retrieval error.
