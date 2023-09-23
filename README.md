@@ -2,6 +2,7 @@
 
 This documentation provides an overview of the key routes and functionality of an e-commerce backend built using Node.js, Express.js, and MongoDB. It includes user management, cart operations, order processing, and product management.
 
+-**Setup Project** npm install
 -**Start Server** npm run server
 -**PORT** 5500
 
