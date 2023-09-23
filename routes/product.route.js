@@ -34,24 +34,24 @@ productRouter.put('/availability/:productId',authenticate, async (req, res) => {
 });
 
 
-productRouter.get('/categories',authenticate, async (req, res) => {
-  try {
-    const categories = await ProductModel.distinct('productCategory');
-    res.status(200).send({ categories });
-  } catch (error) {
-    res.status(500).send(error.message);
+productRouter.get('/categories',authenticate, async (req, res) => {           
+  try {                                                                          
+    const categories = await ProductModel.distinct('productCategory');           
+    res.status(200).send({ categories });                                        
+  } catch (error) {                                                             
+    res.status(500).send(error.message);                                      
   }
 });
 
 
 productRouter.get("/getcategories/:id",authenticate, async (req, res) => {
-    const cat_id = req.params.id;
-    try {
-      const data = await ProductModel.find({ productCategory: cat_id });
-      res.status(200).send({ "List": data });
-    } catch (error) {
-      res.status(500).send(error.message);
-    }
+  const cat_id = req.params.id;
+  try {                                                                           //There is basically 4 category already divided for product
+    const data = await ProductModel.find({ productCategory: cat_id });            //Cat-I:- for Edebles related products
+    res.status(200).send({ "List": data });                                       //Cat-II:- for Electronic related gagets
+  } catch (error) {                                                               //Cat-III:- for Wearables / Clothing products
+    res.status(500).send(error.message);                                          //Cat-IV:- for daily use products
+  }                                                                               //A user can fetch a particular caterory by using these 4 id's only.
   });
 
 
