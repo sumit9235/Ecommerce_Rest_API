@@ -2,6 +2,9 @@
 
 This documentation provides an overview of the key routes and functionality of an e-commerce backend built using Node.js, Express.js, and MongoDB. It includes user management, cart operations, order processing, and product management.
 
+-**Start Server** npm run server
+-**PORT** 5500
+
 # User Management
 
 ## User Registration
@@ -128,3 +131,6 @@ This documentation provides an overview of the key routes and functionality of a
 - **Responses:**
   - 200 OK: Product retrieved successfully.
   - 500 Internal Server Error: Product retrieval error.
+
+
+  ### For user ease i just added .env file as well. Private data are available over there.
