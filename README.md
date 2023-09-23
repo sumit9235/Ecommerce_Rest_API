@@ -1,10 +1,7 @@
 # Ecommerce_Rest_API
 
-<head>
-    <title>E-commerce Backend Documentation</title>
-</head>
+    <h1>E-commerce Backend Documentation</h1>
 
-<body>
     <h1>E-commerce Backend Documentation</h1>
     <p>This documentation provides an overview of the key routes and functionality of an e-commerce backend built using Node.js, Express.js, and MongoDB. It includes user management, cart operations, order processing, and product management.</p>
 
@@ -66,4 +63,3 @@
     </ul>
 
     <p>This documentation provides a concise overview of the e-commerce backend's functionality and routes for developers and stakeholders. For a more interactive documentation experience, consider using API documentation tools.</p>
-</body>
